@@ -1,38 +1,142 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #9be1db; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.topbar {
+  background-color: red;
+  border-radius: 40px;
+  height: 40px;
+  width: 50%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 0 2rem 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.fileinput {
+  height: 36px;
+  opacity: 1; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+
+.fileinput-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  font-weight: bold;
+  background-color: #3498db; 
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+.fileinput-label::before {
+  content: 'Choose File';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.fileinput-label:hover {
+  background-color: #2980b9; 
+}
+
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  grid-template-areas: "image sidebar" "slider sidebar";
+  min-height: 600px;
+  height: auto;
+  width: 1000px;
+  background-color: #34495e; 
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.img {
+  grid-area: image;
+  background-image: url('mountain.jpg');
+  width: 100%;
+  height: 100%;
+  background-position: center; 
+  background-size: cover; 
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #2c3e50; 
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.sidebar-item {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: #3498db; /* Sidebar item color */
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #2980b9; /* Slightly lighter border color */
+  transition: background-color 0.3s;
+}
+
+.sidebar-item:hover,
+.sidebar-item:focus {
+  background-color: #2980b9; /* Darker hover color */
+}
+
+.sidebar-item.active {
+  background-color: #1f6692; /* Darker active color */
+}
+
+.slider-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  grid-area: slider;
+  /* background-color: #27ae60;  */
+  padding: 2rem;
+}
+.slider-value{
+  padding: 0 0 2rem 0;
+  font-size: 1.5rem;
+  color: aliceblue;
 }
 
-.App-link {
-  color: #61dafb;
+.slider {
+  width: 100%;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
+
